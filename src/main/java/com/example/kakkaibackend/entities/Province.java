@@ -1,5 +1,7 @@
 package com.example.kakkaibackend.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,16 +13,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="region")
-public class Region {
+@Table(name="province")
+public class Province {
     @Id
-    @Column(name = "regionID")
+    @Column(name = "provinceID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "regionName",nullable = false)
-    private String regionName;
-
-    @Column(name = "regionPicture",nullable = false)
-    private String regionPicture;
+    @Column(name = "provinceName",nullable = false)
+    private String provinceName;
+//
+//    @JsonIgnore
+//    @ManyToOne
+//    @JoinColumn(name = "regionID")
+//    private Region provinceRegion;
 }
