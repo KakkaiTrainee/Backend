@@ -1,7 +1,6 @@
 package com.example.kakkaibackend.services;
 
 import com.example.kakkaibackend.entities.Region;
-import com.example.kakkaibackend.properties.FileService;
 import com.example.kakkaibackend.repositories.RegionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,7 @@
 package com.example.kakkaibackend.entities;
 
 
+import com.example.kakkaibackend.utils.provinceTravelEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,9 +23,16 @@ public class Province {
 
     @Column(name = "provinceName",nullable = false)
     private String provinceName;
-//
-//    @JsonIgnore
-//    @ManyToOne
-//    @JoinColumn(name = "regionID")
-//    private Region provinceRegion;
+
+    @Column(name = "provincePicture",nullable = false)
+    private String provincePicture;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "provinceTravel",nullable = false)
+    private provinceTravelEnum provinceTravel;
+
+
+    @ManyToOne
+    @JoinColumn(name = "provinceRegion")
+    private Region provinceRegion;
 }
