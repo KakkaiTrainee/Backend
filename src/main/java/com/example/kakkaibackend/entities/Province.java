@@ -33,6 +33,7 @@ public class Province {
 
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "provinceRegion")
     private Region provinceRegion;
 }

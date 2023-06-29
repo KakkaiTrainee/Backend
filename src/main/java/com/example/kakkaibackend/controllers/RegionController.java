@@ -35,11 +35,6 @@ public class RegionController {
         return regionService.getRegionById(id);
     }
 
-    @GetMapping("/name")
-    public String name(){
-        return "Geist" ;
-    }
-
 
     @GetMapping("/images/{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Integer id) {
