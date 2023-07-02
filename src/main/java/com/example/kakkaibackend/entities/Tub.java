@@ -21,9 +21,6 @@ public class Tub {
     @Column(name = "tubName",nullable = false)
     private String tubName;
 
-    @Column(name = "tubAmountPeople",nullable = false)
-    private String tubAmountPeople;
-
-    @Column(name = "regionPicture",nullable = false)
-    private String regionPicture;
+    @Column(name = "tubPicture",nullable = false)
+    private String tubPicture;
 }

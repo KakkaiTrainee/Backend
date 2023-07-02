@@ -23,9 +23,6 @@ public class Hotel {
     @Column(name = "hotelName",nullable = false)
     private String hotelName;
 
-    @Column(name = "hotelProvince",nullable = false)
-    private String hotelProvince;
-
     @Column(name = "hotelPicture",nullable = false)
     private String hotelPicture;
 
@@ -38,15 +35,23 @@ public class Hotel {
     @Column(name = "hotelFacilities",nullable = false)
     private String hotelFacilities;
 
+    @Column(name = "hotelAmountPeople",nullable = false)
+    private String hotelAmountPeople;
+
     @Column(name = "hotelPhone",nullable = false)
     private String hotelPhone;
 
-    @Column(name = "hotelEmail",nullable = false)
-    private String hotelEmail;
+    @Column(name = "hotelLink",nullable = false)
+    private String hotelLink;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "provinceID")
-    private Province province;
+    @JoinColumn(name = "hotelProvince")
+    private Province hotelProvince;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "hotelTub")
+    private Tub hotelTub;
 
 }   
