@@ -1,16 +1,19 @@
 package com.example.kakkaibackend.controllers;
 
-
-
 import com.example.kakkaibackend.entities.Region;
+import com.example.kakkaibackend.entities.Tub;
 import com.example.kakkaibackend.repositories.RegionRepository;
+import com.example.kakkaibackend.repositories.TubRepository;
 import com.example.kakkaibackend.services.RegionService;
+import com.example.kakkaibackend.services.TubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,29 +21,30 @@ import java.nio.file.Files;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/regions")
-public class RegionController {
+@RequestMapping("/api/tubs")
+public class TubController {
+
     @Autowired
-    private RegionService regionService;
+    private TubService tubService;
     @Autowired
-    private RegionRepository regionRepository;
+    private TubRepository tubRepository;
 
     @GetMapping("")
-    public List<Region> getAllRegion(){
-        return regionService.getAllRegion();
+    public List<Tub> getAllTub(){
+        return tubService.getAllTub();
     }
 
     @GetMapping("/{id}")
-    public Region getRegionById(@PathVariable Integer id){
-        return regionService.getRegionById(id);
+    public Tub getTubById(@PathVariable Integer id){
+        return tubService.getTubById(id);
     }
 
 
     @GetMapping("/images/{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Integer id) {
-        Region region = regionRepository.findById(id).orElse(null);
-        if (region != null) {
-            File file = new File(region.getRegionPicture());
+        Tub tub = tubRepository.findById(id).orElse(null);
+        if (tub != null) {
+            File file = new File(tub.getTubPicture());
             try {
                 byte[] imageData = Files.readAllBytes(file.toPath());
                 return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageData);
@@ -51,7 +55,3 @@ public class RegionController {
         return ResponseEntity.notFound().build();
     }
 }
-
-
-
-

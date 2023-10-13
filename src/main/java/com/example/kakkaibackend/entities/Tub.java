@@ -11,16 +11,16 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="region")
-public class Region {
+@Table(name="tub")
+public class Tub {
     @Id
-    @Column(name = "regionID")
+    @Column(name = "tubID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "regionName",nullable = false)
-    private String regionName;
+    @Column(name = "tubName",nullable = false)
+    private String tubName;
 
-    @Column(name = "regionPicture",nullable = false)
-    private String regionPicture;
+    @Column(name = "tubPicture",nullable = false)
+    private String tubPicture;
 }
