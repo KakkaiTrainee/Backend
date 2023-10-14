@@ -38,18 +38,21 @@ public class Hotel {
     @Column(name = "hotelAmountPeople",nullable = false)
     private String hotelAmountPeople;
 
+    @Column(name = "hotelPrice",nullable = false)
+    private String hotelPrice;
+
     @Column(name = "hotelPhone",nullable = false)
     private String hotelPhone;
 
     @Column(name = "hotelLink",nullable = false)
     private String hotelLink;
 
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "hotelProvince")
     private Province hotelProvince;
 
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "hotelTub")
     private Tub hotelTub;

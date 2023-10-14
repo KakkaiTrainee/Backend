@@ -30,10 +30,9 @@ public class Province {
     @Enumerated(EnumType.STRING)
     @Column(name = "provinceTravel",nullable = false)
     private provinceTravelEnum provinceTravel;
-
+//    @JsonIgnore
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "provinceRegion")
     private Region provinceRegion;
 }
